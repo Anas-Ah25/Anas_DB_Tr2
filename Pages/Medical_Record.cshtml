@@ -1,0 +1,27 @@
+﻿
+@page
+
+@model Anas_DB_Tr2.Pages.MedicalRecordDetailsModel
+@{
+	Layout = "_DoctorLayout";
+}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Medical Record for Patient: @Model.PatientDetails.Patient_Name</h2>
+
+			<!-- Display the medical record information -->
+			<div>
+				<form method="post">
+					<div class="form-group">
+						<label>Medical Record Description</label>
+						<textarea class="form-control" rows="6" asp-for="MedicalRecordDetails.Description" readonly></textarea>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>

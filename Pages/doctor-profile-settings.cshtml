@@ -1,0 +1,80 @@
+﻿@page
+@model Anas_DB_Tr2.Pages.DoctorProfileSettingsModel
+@{
+    Layout = "_DoctorLayout";
+}
+
+<!-- Page Content -->
+<div class="content">
+    <div class="container-fluid">
+        <!-- ... Your existing sidebar content ... -->
+        <!-- Main Content -->
+        <div class="col-md-7 col-lg-8 col-xl-9">
+            <form method="post" enctype="multipart/form-data">
+                <!-- Basic Information -->
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Basic Information</h4>
+                        <div class="row form-row">
+                            <!-- Profile Image Section -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="change-avatar">
+                                        <div class="profile-img">
+                                            <img src="~/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                        </div>
+                                        <div class="upload-img">
+                                            <div class="change-photo-btn">
+                                                <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                                <input type="file" class="upload" asp-for="CurrentDoctor.ImageFile">
+                                            </div>
+                                            <small class="form-text text-muted">Allowed JPG, GIF, or PNG. Max size of 2MB</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Name and Email Section -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Name <span class="text-danger">*</span></label>
+                                    <input asp-for="CurrentDoctor.Doc_Name" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email <span class="text-danger">*</span></label>
+                                    <input asp-for="CurrentDoctor.Email" type="email" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Phone Number Section -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input asp-for="CurrentDoctor.PhoneN" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Basic Information -->
+                <!-- About Me -->
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">About Me</h4>
+                        <div class="form-group">
+                            <label for="Biography">Biography</label>
+                            <textarea id="Biography" asp-for="CurrentDoctor.Biography" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- /About Me -->
+                <!-- Submit Button -->
+                <div class="submit-section">
+                    <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+        <!-- /Main Content -->
+    </div>
+</div>
+<!-- /Page Content -->

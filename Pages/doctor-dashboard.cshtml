@@ -1,0 +1,157 @@
+﻿@page
+@model Anas_DB_Tr2.Pages.DoctorDashboardModel
+@{
+	Layout = "_DoctorLayout";
+}
+
+
+
+<!-- Page Content -->
+<div class="content">
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+
+				<!-- Profile Sidebar -->
+				<div class="profile-sidebar">
+					<div class="widget-profile pro-widget-content">
+						<div class="profile-info-widget">
+							<a href="#" class="booking-doc-img">
+								<img src="~/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+							</a>
+							<div class="profile-det-info">
+								<h3>@Model.CurrentDoctor.Doc_Name</h3>
+								<div class="patient-details">
+									<h5 class="mb-0">@Model.CurrentDoctor.Doc_Specialization</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="dashboard-widget">
+						<nav class="dashboard-menu">
+							<ul>
+								<li class="active">
+									<a asp-page="doctor-dashboard">
+										<i class="fas fa-columns"></i>
+										<span>Dashboard</span>
+									</a>
+								</li>
+
+								<li>
+									<a asp-page="my-patients">
+										<i class="fas fa-user-injured"></i>
+										<span>My Patients</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<!-- /Profile Sidebar -->
+
+			</div>
+
+			<div class="col-md-7 col-lg-8 col-xl-9">
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card dash-card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-12 col-lg-4">
+										<div class="dash-widget dct-border-rht">
+											<div class="circle-bar circle-bar1">
+												<div class="circle-graph1" data-percent="75">
+													<img src="~/assets/img/icon-01.png" class="img-fluid" alt="patient">
+												</div>
+											</div>
+											<div class="dash-widget-info">
+												<h6>Total Patients Today</h6>
+												<h3>@Model.TotalPatientsToday</h3>
+												<p class="text-muted"></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 col-lg-4">
+										<div class="dash-widget">
+											<div class="circle-bar circle-bar3">
+												<div class="circle-graph3" data-percent="50">
+													<img src="~/assets/img/icon-03.png" class="img-fluid" alt="Patient">
+												</div>
+											</div>
+				
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h4 class="mb-4">Patient Appoinment</h4>
+						<div class="appointment-tab">
+
+							<!-- Appointment Tab -->
+							<ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded">
+								<li class="nav-item">
+									<a class="nav-link active" href="#upcoming-appointments" data-toggle="tab">Upcoming</a>
+								</li>
+							</ul>
+							<!-- /Appointment Tab -->
+
+							<div class="tab-content">
+								<!-- Upcoming Appointment Tab -->
+								<div class="tab-pane show active" id="upcoming-appointments">
+									<div class="card card-table mb-0">
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table table-hover table-center mb-0">
+													<thead>
+														<tr>
+															<th>Patient Name</th>
+															<th>App Date</th>
+															<th>App ID</th>
+															<th></th> <!-- Separate column for View button -->
+														</tr>
+													</thead>
+													<tbody>
+														@foreach (var appointment in Model.TodaysAppointments)
+														{
+															<tr>
+																<td>
+																	<h2 class="table-avatar">
+																		<a href="/patient-profile/@appointment.Patient_ID" class="avatar avatar-sm mr-2">
+																			<img class="avatar-img rounded-circle" src="~/assets/img/patients/patient1.jpg" alt="User Image">
+																		</a>
+																		<a asp-page ="/patient-profile/@appointment.Patient_ID">@appointment.Patient_Name <span>#@appointment.Patient_ID</span></a>
+																	</h2>
+																</td>
+																<td>@appointment.App_Date.ToString("yyyy-MM-dd")</td>
+																<td>@appointment.Appointment_ID</td>
+																<td>
+																	<a asp-page="/appointments-details"  class="btn btn-primary btn-sm">View</a>
+																</td>
+															</tr>
+														}
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+</div>
+<!-- /Page Content -->

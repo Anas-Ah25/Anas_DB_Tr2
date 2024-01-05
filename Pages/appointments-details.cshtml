@@ -1,0 +1,67 @@
+﻿@page
+@model Anas_DB_Tr2.Pages.AppointmentDetailsModel
+@{
+    Layout = "_DoctorLayout";
+}
+
+
+
+
+
+<!-- Page Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+                <!-- Profile Widget -->
+                <div class="card widget-profile pat-widget-profile">
+                    <div class="card-body">
+                        <div class="pro-widget-content">
+                            <div class="profile-info-widget">
+                                <a href="#" class="booking-doc-img">
+                                    <img src="assets/img/patients/patient.jpg" alt="User Image">
+                                </a>
+                                <div class="profile-det-info">
+                                    <h3>@Model.PatientDetails.Patient_Name</h3>
+                                    <div class="patient-details">
+                                        <h5><b>Patient ID :</b> @Model.PatientDetails.Patient_ID</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patient-info">
+                            <ul>
+                                <li>Phone <span>@Model.PatientDetails.PhoneN</span></li>
+                                <li>Age <span>@Model.PatientDetails.Age Years</span></li>
+                                <li>Email <span>@Model.PatientDetails.Email</span></li>
+                                <li>Date of Birth <span>@Model.PatientDetails.Birthdate.ToString("dd MMM yyyy")</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Profile Widget -->
+            </div>
+
+            <div class="col-md-7 col-lg-8 col-xl-9">
+                <!-- buttons section -->
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Medical Report</h4>
+	                    <form method="post">
+		                    <div class="form-group">
+			                    <label>Report Details</label>
+			                    <textarea class="form-control" rows="6" asp-for="InputMedicalReport.Description"></textarea>
+		                    </div>
+		                    <div class="mt-4">
+			                    <button type="submit" class="btn btn-primary">Submit Medical Report</button>
+                                <a asp-page="/Medical_Record" class="btn btn-primary">View Medical Record</a>
+		                    </div>
+	                    </form>
+                    </div>
+                </div>
+                <!-- buttons section -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->

@@ -1,0 +1,136 @@
+﻿first adapt this code (view the image) : @page
+@model Anas_DB_Tr2.Pages.DoctorProfileSettingsModel
+@{
+    Layout = "_DoctorLayout";
+}
+
+<!-- Page Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="profile-sidebar">
+	            <div class="widget-profile pro-widget-content">
+		            <div class="profile-info-widget">
+			            <a href="#" class="booking-doc-img">
+				            <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+			            </a>
+			            <div class="profile-det-info">
+				            <h3>@Model.CurrentDoctor.Doc_Name</h3>
+											
+				            <div class="patient-details">
+					            <h5 class="mb-0">@Model.CurrentDoctor.Doc_Specialization</h5>
+				            </div>
+			            </div>
+		            </div>
+	            </div>
+	            <div class="dashboard-widget">
+		            <nav class="dashboard-menu">
+			            <ul>
+				            <li>
+                                <a asp-page="/doctor-profile-settings">
+						            <i class="fas fa-user-cog"></i>
+						            <span>Profile Settings</span>
+					            </a>
+				            </li>
+								
+				            <li class="active">
+                                <a asp-page="/doctor-change-password">
+						            <i class="fas fa-lock"></i>
+						            <span>Change Password</span>
+					            </a>
+				            </li>
+				            <li>
+					            <a asp-page="/index-2">
+						            <i class="fas fa-sign-out-alt"></i>
+						            <span>Logout</span>
+					            </a>
+				            </li>
+			            </ul>
+		            </nav>
+	            </div>
+            </div>
+            <!-- /Sidebar -->
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <form method="post" enctype="multipart/form-data">
+                    <!-- Basic Information -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Basic Information</h4>
+                            <div class="row form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="change-avatar">
+                                            <div class="profile-img">
+                                                <!-- Display user profile image -->
+                                                <img src="~/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                            </div>
+                                            <div class="upload-img">
+                                                <div class="change-photo-btn">
+                                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                                    <!-- Add input for image upload here -->
+                                                    <input type="file" class="upload">
+                                                </div>
+                                                <small class="form-text text-muted">Allowed JPG, GIF, or PNG. Max size of 2MB</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Username <span class="text-danger">*</span></label>
+                                        <!-- Display username -->
+                                        <input type="text" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <!-- Display email -->
+                                        <input type="email" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Name <span class="text-danger">*</span></label>
+                                        <!-- Add input for name here -->
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <!-- Add input for phone number here -->
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- Add more form fields as needed -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Basic Information -->
+                    <!-- About Me -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">About Me</h4>
+                            <div class="form-group">
+                                <label for="Biography">Biography</label>
+                                <!-- Display and edit biography -->
+                                <textarea asp-for="CurrentDoctor.Biography" class="form-control" rows="5"></textarea>
+                            </div>
+                            <!-- Add other About Me fields here -->
+                        </div>
+                    </div>
+                    <!-- /About Me -->
+                    <!-- Submit Button -->
+                    <div class="submit-section">
+                        <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /Main Content -->
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->
